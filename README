@@ -37,7 +37,7 @@ find $PWD -type f -name "*clever_asterisk_tag*.xlsx" > xlsx_input.txt
 
 And boom, you're done.
 
-Next, you'll want to create the following directories:
+Next, you'll want to create the following directories (though they should carry over from GitHub)
 
 csv_GSU/
 csvLists/
@@ -71,6 +71,6 @@ Seeks a given line in a file (lines are numbered 0 to n)
 void mpvCrossCheck(char *uniplast, char *gsu);
 
 Builds a TH2F with GSU mpv data on one axis and Uniplast mpv data on another by matching tile names across the .txt files.
-This is sort of the culmination of the rest of the finctions. 
+This is sort of the culmination of the rest of the finctions. Example plots can be found in Plots/
 
 
