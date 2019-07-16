@@ -1,0 +1,12 @@
+/Users/anthonyhodges/sPHENIX/uniplastData/convTest/csv_GSU/Database_B21.csv
+/Users/anthonyhodges/sPHENIX/uniplastData/convTest/csv_GSU/Database_B22.csv
+/Users/anthonyhodges/sPHENIX/uniplastData/convTest/csv_GSU/Database_B23.csv
+/Users/anthonyhodges/sPHENIX/uniplastData/convTest/csv_GSU/Database_B24.csv
+/Users/anthonyhodges/sPHENIX/uniplastData/convTest/csv_GSU/Database_B25.csv
+/Users/anthonyhodges/sPHENIX/uniplastData/convTest/csv_GSU/Database_B26.csv
+/Users/anthonyhodges/sPHENIX/uniplastData/convTest/csv_GSU/Database_B27.csv
+/Users/anthonyhodges/sPHENIX/uniplastData/convTest/csv_GSU/Database_B28.csv
+/Users/anthonyhodges/sPHENIX/uniplastData/convTest/csv_GSU/Database_B29.csv
+/Users/anthonyhodges/sPHENIX/uniplastData/convTest/csv_GSU/Database_B30.csv
+/Users/anthonyhodges/sPHENIX/uniplastData/convTest/csv_GSU/Database_B31.csv
+/Users/anthonyhodges/sPHENIX/uniplastData/convTest/csv_GSU/Database_B32.csv

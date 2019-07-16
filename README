@@ -1,0 +1,76 @@
+This repository contains a few tools for converting excel databases into C++ parseable txt. files. They're really meant to serve more as
+examples than anything else, I suppose, seeing as how they were made for one specific task. Their original prupose was to take excel documents
+containing cosmic ray data taken at Uniplast and a similar database made at GSU and break them down into csv, which could then be turned into
+two-column text files, suitable for making TH2F's to compare the two. With a little bit of ingenuity though, they could really be made to do anything.
+Hell, you could probably make all the plots you ever needed by writing macros based on what's in this repository. Anyways, here's the breakdown of the functionality:
+
+Note: to get the python scripts working you:
+A) Need to have python installed and
+B) need xlrd, which I think you can install just by typing "sudo install python xlrd"
+3) Need to clear the input/output files: CSV_output.txt, CSV_output_GSU.txt, xlsx_input.txt, which can be done simply by doing:
+
+:> target.txt
+
+xls_to_csv_GSU.py
+
+This takes in a copy of the GSU tile testing database (needs to be named "TileDataBase.xlsx") and breaks it down into
+12 csv's for each tile type. Note: you need to go through the database and replace all empty cells within the active region
+of the spreadsheets with 0's (simply select all, open the replace menu, and leave the "find" parameter blank, and set the "replace
+with" parameter to 0). Not having the zero's confuses c++ because it needs delimeters in the right places. It's pretty straightfoward;
+the only interesting bit is in the last line where you need to make python check that unicode conversions are being handled correctly.
+
+xls_to_csv_Uni.py
+
+This does the same thing, except it'll give you a csv per day of testing at Uniplast, which contains like, between 3-7 tests usually.
+You'll need to generate a file list for it, called "xlsx_input.txt". You can do this by navigating to the location of the uniplast data
+(in the dropbox it's called "Database" in the dropbox, and type:
+
+find $PWD -type f -name "*clever_asterisk_tag*.xlsx"
+
+And what I mean by clever asterisk tag is that say you want all the uniplast data taken in 2018, the command for that is:
+
+find $PWD -type f -name "*2018*.xlsx"
+
+That means find doesn't care what's written to the left of 2018, or what's between 2018 and .xlsx. You can then filter this output into the input text file by typing:
+
+find $PWD -type f -name "*clever_asterisk_tag*.xlsx" > xlsx_input.txt
+
+And boom, you're done.
+
+Next, you'll want to create the following directories:
+
+csv_GSU/
+csvLists/
+
+The csv files will be stored in there. 
+
+To run either, simply type
+
+> python xls_to_csv_(GSU or Uni).py
+
+The macro makeTxtFromCSV.C is meant to take the output from the previous two macros and turn them into simple .txt files that are easy to
+read in and fill histograms with. It also contains a number of dope auxiliary functions
+
+void makeTxtFromCSV_Uni(char *csvin);
+
+Makes a text file with one column being a tile name, and another being the MPV from Uniplast data
+
+void makeTxtFromCSV_GSU(char *csvin);
+
+Makes a text file with one column being the tile name, adn the other being the MPV from GSU data
+
+int countLines(char* filelist);
+int countLines(string filelist);
+
+Counts the number of lines in a file, overloaded to take strings and chars
+
+fstream& goToLine(fstream& file, unsigned int num);
+
+Seeks a given line in a file (lines are numbered 0 to n)
+
+void mpvCrossCheck(char *uniplast, char *gsu);
+
+Builds a TH2F with GSU mpv data on one axis and Uniplast mpv data on another by matching tile names across the .txt files.
+This is sort of the culmination of the rest of the finctions. 
+
+

@@ -1,0 +1,8 @@
+#xls_to_csv_GSU.py#
+.#xls_to_csv_GSU.py
+.DS_Store
+*.csv
+csvLists/*.csv
+csv_GSU/*.csv
+*.xlsx
+*~*
